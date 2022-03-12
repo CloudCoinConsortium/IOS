@@ -22,7 +22,7 @@ class HeaderGenerator: NSObject{
             }else{
                 newH1 = h1
             }
-            print("INDEX HERE \(index) \(newH1)") // "3d"
+            //print("INDEX HERE \(index) \(newH1)") // "3d"
             header = HeaderConstants(RI: newH1)//"0\(index)")*/
         }
         let mirror = Mirror(reflecting: header!)
@@ -30,7 +30,7 @@ class HeaderGenerator: NSObject{
         for each in mirror.children{
             newStr.append("\(each.value)")
         }
-        print("NEW STRING \(newStr)")
+        //print("NEW STRING \(newStr)")
         return newStr
     }
 }
@@ -41,7 +41,9 @@ struct HeaderConstants{
     let SH = "00" //SHARD ID
     let CM = "00" //Command
     let CM1 = "04" //Command 2
+    
     let CVE = "00" //Command Version
+    
     let ID = "00" //Coin ID 1
     let ID2 = "00" //Coin ID 2
     let RE = "00" //Reserved 1

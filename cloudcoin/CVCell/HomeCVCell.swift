@@ -8,5 +8,6 @@
 import UIKit
 
 class HomeCVCell: UICollectionViewCell {
-    
+    @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var denominationLabel: UILabel!
 }

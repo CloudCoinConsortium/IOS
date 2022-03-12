@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+extension NSObject{
+    func createFileName(cloudcoin: CoinModelData) -> String{
+        let result = "\(cloudcoin.sn?.getDenomination() ?? "").CloudCoin.\(cloudcoin.nn ?? "").\(cloudcoin.sn ?? "")"
+        return result
+    }
+}

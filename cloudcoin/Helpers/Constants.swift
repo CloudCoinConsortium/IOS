@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct Constants{
+    struct API{
+        static let hostTxt = "https://www.webappfactory.co/super/host.txt"
+    }
+}
+
