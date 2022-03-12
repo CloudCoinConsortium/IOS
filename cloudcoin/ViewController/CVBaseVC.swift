@@ -13,7 +13,7 @@ class CVBaseVC: BaseVC {
     
     //Number of active raida
     var activeRaida = 0
-    let hostModelArray = HostExtractRepo.getHostArray()
+    var hostModelArray: [HostModel]?
 
     
     override func viewDidLoad() {
@@ -25,6 +25,7 @@ class CVBaseVC: BaseVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         activeRaida = 0
+        hostModelArray = HostExtractRepo.getHostArray()
         collectionView.reloadData()
     }
 }

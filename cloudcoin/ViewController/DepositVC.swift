@@ -16,9 +16,9 @@ class DepositVC: CVBaseVC {
     @IBOutlet weak var cancelButton: UIButton!
     
     @IBOutlet weak var backgroundImage: UIImageView!
-    
-    private var importedCoins = [CoinModelData]()
-    private var getTicket = [String?](repeating: nil, count: 25)
+    private var coins = [UInt8]()
+    //private var importedCoins = [CoinModelData]()
+    //private var getTicket = [String?](repeating: nil, count: 25)
     
     private var documentPicker: DocumentPicker?
     
@@ -49,22 +49,15 @@ class DepositVC: CVBaseVC {
         documentPicker = DocumentPicker(vc: self, delegate: self)
     }
     @objc private func depositAction(){
-        if importedCoins.count > 0{
-            for each in importedCoins{
-                let fileName = createFileName(cloudcoin: each)
-                let directoryModel = DirectoryModel(fileName: fileName, fileExt:  CreateDirectory.cloudcoinName, data: CoinModel(cloudcoin: [each]), directory: CreateDirectory.importedName)
-                let _ = CreateDirectory(directoryModel: directoryModel)
-            }
-            if activeRaida >= 16{
-                memoTF.resignFirstResponder()
-                let _ = PownHeaderGenerator(importedCoins: self.importedCoins, hostModelArray: self.hostModelArray)
-            }else{
-                self.view.makeToast("There are not enough RAIDA available to perform the deposit.")
-            }
+        if coins.count > 0 && activeRaida >= 16{
+            memoTF.resignFirstResponder()
+            let _ = PownHeaderGenerator(hostModelArray: hostModelArray, uintArray: coins)
+        }else{
+            self.view.makeToast("There are not enough RAIDA available to perform the deposit.")
         }
     }
     @objc private func cancelAction(){
-        importedCoins = [CoinModelData]()
+        coins = [UInt8]()
         uploadButton.setTitle("SELECT CLOUD COINS", for: UIControl.State())
         cancelButton.isHidden = true
     }
@@ -80,29 +73,10 @@ extension DepositVC: DocumentPickerDelegate{
         print("ERROR \(error.userInfo["error"])")
     }
     
-    func documentPickedSuccessfully(coins: [CoinModelData]?, binaryCoins: [UInt8]?){
-        if let coins = coins {
-            self.importedCoins = coins
-            var buttonTitle = ""
-            if importedCoins.count > 0{
-                cancelButton.isHidden = false
-                if importedCoins.count > 1{
-                    buttonTitle = "\(self.importedCoins.count) FILES SELECTED"
-                }else{
-                    buttonTitle = "\(self.importedCoins.count) FILE SELECTED"
-                }
-            }else{
-                buttonTitle = "SELECT CLOUD COINS"
-                cancelButton.isHidden = true
-            }
-            uploadButton.setTitle(buttonTitle, for: UIControl.State())
-            let _ = PownHeaderGenerator(importedCoins: self.importedCoins, hostModelArray: hostModelArray, uintArray: nil)
-        }else{
-            if let binaryCoins = binaryCoins {
-                let _ = PownHeaderGenerator(importedCoins: nil, hostModelArray: hostModelArray, uintArray: binaryCoins)
-            }
+    func documentPickedSuccessfully(binaryCoins: [UInt8]?){
+        if let binaryCoins = binaryCoins {
+            self.coins = binaryCoins
         }
-        
     }
 }
 extension DepositVC: UITextFieldDelegate{

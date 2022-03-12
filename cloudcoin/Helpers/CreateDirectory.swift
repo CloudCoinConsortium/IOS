@@ -1,8 +1,8 @@
 //
-//  CreateDirectory.swift
+//  CreateDirectoryBinary.swift
 //  cloudcoin
 //
-//  Created by Moumita China on 18/12/21.
+//  Created by Moumita China on 29/01/22.
 //
 
 import Foundation
@@ -16,21 +16,35 @@ class CreateDirectory: NSObject{
     static let limboName = "Limbo"
     static let importedName = "Imported"
     static let cloudcoinName = "cloudcoin"
-    static let stackName = "stack"
     static let binName = "bin"
 
     let fileManager = FileManager.default
     
-    private var directoryModel: DirectoryModel!
+    private var directoryModel: DirectoryBinaryModel!
     
     
-    convenience init(directoryModel: DirectoryModel){
+    convenience init(directoryModel: DirectoryBinaryModel){
         self.init()
         self.directoryModel = directoryModel
         self.createAndWriteFile()
     }
-
-     func createMainDirectory() -> Bool?{
+    convenience init(isFirst: Bool) {
+        self.init()
+        if isFirst{
+            if let created = createMainDirectory(){
+                if created{
+                    createSubDirectory(name: CreateDirectory.bankName)
+                    createSubDirectory(name: CreateDirectory.counterfeitName)
+                    createSubDirectory(name: CreateDirectory.exportedName)
+                    createSubDirectory(name: CreateDirectory.frackedName)
+                    createSubDirectory(name: CreateDirectory.limboName)
+                    createSubDirectory(name: CreateDirectory.importedName)
+                    Settings.shared().isFolderCreated = true
+                }
+            }
+        }
+    }
+    private func createMainDirectory() -> Bool?{
         if let directory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first{
             let newDirectory = directory.appendingPathComponent(CreateDirectory.appName)
             print("DIRECTORY HERE \(newDirectory)")
@@ -51,7 +65,7 @@ class CreateDirectory: NSObject{
             return false
         }
     }
-    func createSubDirectory(name : String){
+    private func createSubDirectory(name : String){
         if let directory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first{
             let newDirectory = directory.appendingPathComponent(CreateDirectory.appName).appendingPathComponent(name)
             print("DIRECTORY HERE \(newDirectory)")
@@ -85,11 +99,10 @@ class CreateDirectory: NSObject{
         let fileUrl = documentDirectoryUrl?.appendingPathComponent(self.directoryModel.fileName)
         //data to write in file.
         // Transform array into data and save it into file
-        let jsonData = try! JSONEncoder().encode(self.directoryModel.data)
-        let jsonString = String(data: jsonData, encoding: .utf8)!
+        let rawData = Data(self.directoryModel.data)
         DispatchQueue.global().async {
             do {
-                try jsonString.write(toFile: fileUrl!.path, atomically: true, encoding: .utf8)//
+                try rawData.write(to: fileUrl!)
             } catch {
                 print(error)
             }
@@ -153,7 +166,7 @@ class CreateDirectory: NSObject{
         if let fromPath = URL(string: getDirectoryPath(path: fromPath))?.appendingPathComponent(filename).appendingPathExtension(fileextension) {
             //DispatchQueue.global().async {
             do{
-                let toPathHere = URL(string: getDirectoryPath(path: toPath))?.appendingPathComponent(filename).appendingPathExtension(CreateDirectory.stackName)
+                let toPathHere = URL(string: getDirectoryPath(path: toPath))?.appendingPathComponent(filename).appendingPathExtension(CreateDirectory.binName)
                 print("TO PATH \(toPathHere)")
                 try fileManager.moveItem(atPath: fromPath.path, toPath: (toPathHere?.path)!)
             }catch{
@@ -174,7 +187,6 @@ class CreateDirectory: NSObject{
                         if coinModel.cloudcoin?.count ?? 0 > 0{
                             coins?.append(contentsOf: coinModel.cloudcoin ?? [CoinModelData]())
                         }
-                        // try fileManager.removeItem(atPath: each.path)
                     }
                 }
                 return coins
@@ -187,26 +199,6 @@ class CreateDirectory: NSObject{
         }
     }
     private func removeFilePresentInLimboFracked(filename: String){
-        /*if let filePath = URL(string: getDirectoryPath(path: CreateDirectory.limboName))?.appendingPathComponent("\(filename).\(CreateDirectory.cloudcoinName)"){
-            let coin = readDataFromPath(type: CoinModel.self, filepath: filePath)
-            if coin != nil{
-                do{
-                    try fileManager.removeItem(at: filePath)
-                }catch{
-                    print(error)
-                }
-            }
-        }
-        if let filePath = URL(string: getDirectoryPath(path: CreateDirectory.frackedName))?.appendingPathComponent("\(filename).\(CreateDirectory.cloudcoinName)"){
-            let coin = readDataFromPath(type: CoinModel.self, filepath: filePath)
-            if coin != nil{
-                do{
-                    try fileManager.removeItem(at: filePath)
-                }catch{
-                    print(error)
-                }
-            }
-        }*/
         let _ = removeFileFromPath(path: CreateDirectory.limboName, filename: filename)
         let _ = removeFileFromPath(path: CreateDirectory.frackedName, filename: filename)
     }

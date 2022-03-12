@@ -173,7 +173,7 @@ struct PownBodyGenerator{
 struct CoinsBinary{
     var SNO = [UInt8](repeating: 0, count: 3)
     var AN = [UInt8](repeating: 0, count: 384)
-    var PAN = [UInt8]()
+    var PAN: [UInt8]?
 }
 extension CoinsBinary{
     func mirrorSelf() -> [UInt8]{

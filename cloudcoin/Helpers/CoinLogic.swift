@@ -15,12 +15,12 @@ class CoinLogic: NSObject{
         return String((0..<length).map{ _ in CoinLogic.letters.randomElement()! })
     }
     
-    static func generateCryptoString() -> String{
+    static func generateCryptoString(count: Int) -> String{
         var randomBytes = [UInt8](repeating: 0, count: 16)
-        let result = Int(SecRandomCopyBytes(kSecRandomDefault, 16, &randomBytes))
+        let result = Int(SecRandomCopyBytes(kSecRandomDefault, count, &randomBytes))
         if result == 0 {
             var uuidStringReplacement = ""
-            for index in 0..<16 {
+            for index in 0..<count {
                 uuidStringReplacement += String(format: "%02x", randomBytes[index])
             }
             //print("uuidStringReplacement is \(uuidStringReplacement) \(uuidStringReplacement.count)")

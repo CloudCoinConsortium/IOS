@@ -178,7 +178,7 @@ class WithdrawVC: CVBaseVC {
             print("HELLO HERE \(String(describing: hello))")
             let fileName = coinModel[i].file_name
             createDirectory.moveItem(fromPath: CreateDirectory.bankName, toPath: CreateDirectory.exportedName, filename: "\(fileName)", fileextension: CreateDirectory.cloudcoinName)
-            fileNames.append("\(fileName).\(CreateDirectory.stackName)")
+            fileNames.append("\(fileName).\(CreateDirectory.binName)")
             RealmManager.deleteCoinRModel(coin: coinModel[i])
         }
         writeToRealm(amount: String(amount), count: self.coinModel.count)
@@ -231,9 +231,9 @@ class WithdrawVC: CVBaseVC {
         }
         if stack.count > 0{
             let filename = "\(getFilename(total: String(stack.count)))"
-            let _ = CreateDirectory(directoryModel: DirectoryModel(fileName: filename, fileExt: CreateDirectory.stackName, data: CoinModel(cloudcoin: stack), directory: CreateDirectory.exportedName))
+            let _ = CreateDirectory(directoryModel: DirectoryBinaryModel(fileName: filename, fileExt: CreateDirectory.binName, data: [UInt8](), directory: CreateDirectory.exportedName))
             //CreateDirectory.createAndWriteFile(fileName: filename, fileExt: CreateDirectory.stackName, data: CoinModel(cloudcoin: stack), directory: CreateDirectory.exportedName)
-            fileNames.append("\(filename).\(CreateDirectory.stackName)")
+            fileNames.append("\(filename).\(CreateDirectory.binName)")
             amount = Int(stack.count * deno)
         }
         return amount

@@ -15,18 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         if !Settings.shared().isFolderCreated{
-            let createDirectory = CreateDirectory()
-            if let created = createDirectory.createMainDirectory(){
-                if created{
-                    createDirectory.createSubDirectory(name: CreateDirectory.bankName)
-                    createDirectory.createSubDirectory(name: CreateDirectory.counterfeitName)
-                    createDirectory.createSubDirectory(name: CreateDirectory.exportedName)
-                    createDirectory.createSubDirectory(name: CreateDirectory.frackedName)
-                    createDirectory.createSubDirectory(name: CreateDirectory.limboName)
-                    createDirectory.createSubDirectory(name: CreateDirectory.importedName)
-                    Settings.shared().isFolderCreated = true
-                }
-            }
+            let _ = CreateDirectory(isFirst: true)
         }
         return true
     }
