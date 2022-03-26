@@ -7,23 +7,137 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F1DB2A2273EACE300D5C8DF /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1DB2A1273EACE300D5C8DF /* Data+Extension.swift */; };
+		1F2157FA27843060003DC73A /* Url+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2157F927843060003DC73A /* Url+Extension.swift */; };
 		1F2C366F272FF013006C2F8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C366E272FF013006C2F8B /* AppDelegate.swift */; };
 		1F2C3671272FF013006C2F8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C3670272FF013006C2F8B /* SceneDelegate.swift */; };
-		1F2C3673272FF013006C2F8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C3672272FF013006C2F8B /* ViewController.swift */; };
 		1F2C3676272FF013006C2F8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F2C3674272FF013006C2F8B /* Main.storyboard */; };
 		1F2C3678272FF015006C2F8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F2C3677272FF015006C2F8B /* Assets.xcassets */; };
 		1F2C367B272FF015006C2F8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F2C3679272FF015006C2F8B /* LaunchScreen.storyboard */; };
+		1F2C368427300249006C2F8B /* HostExtractRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C368327300249006C2F8B /* HostExtractRepo.swift */; };
+		1F2C368727300263006C2F8B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C368627300263006C2F8B /* Constants.swift */; };
+		1F2C368A273002F8006C2F8B /* HostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C3689273002F8006C2F8B /* HostModel.swift */; };
+		1F2C368C27300FC3006C2F8B /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C368B27300FC3006C2F8B /* APIManager.swift */; };
+		1F4B69C1274F6F1100F32E75 /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B69C0274F6F1100F32E75 /* CoinModel.swift */; };
+		1F4B69C3274F707000F32E75 /* UIGesture+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B69C2274F707000F32E75 /* UIGesture+Extension.swift */; };
+		1F4B69C6274F70E700F32E75 /* PownHeaderGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B69C5274F70E700F32E75 /* PownHeaderGenerator.swift */; };
+		1F57D3B127A5922B00FF9CBB /* CreateDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F57D3B027A5922B00FF9CBB /* CreateDirectory.swift */; };
+		1F594AFC274915CC003498D1 /* HeaderGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F594AFB274915CC003498D1 /* HeaderGenerator.swift */; };
+		1F64B455276752FE0040EF4D /* PownResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F64B454276752FE0040EF4D /* PownResponseModel.swift */; };
+		1F666936276DC11E0075E208 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F666935276DC11E0075E208 /* UIViewController+Extension.swift */; };
+		1F666938276DC14D0075E208 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F666937276DC14D0075E208 /* String+Extension.swift */; };
+		1F66693E276DF11F0075E208 /* DirectoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F66693D276DF11F0075E208 /* DirectoryModel.swift */; };
+		1F77BE4527509E870074ADFB /* CoinLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77BE4427509E870074ADFB /* CoinLogic.swift */; };
+		1F7B090A277D8F1300D6FDDB /* WithdrawVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B0909277D8F1300D6FDDB /* WithdrawVC.swift */; };
+		1F7B090D277DBA0F00D6FDDB /* WithdrawTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B090C277DBA0F00D6FDDB /* WithdrawTVCell.swift */; };
+		1F7B090F277DBA5700D6FDDB /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B090E277DBA5700D6FDDB /* UITableView+Extension.swift */; };
+		1F7B0911277DBAED00D6FDDB /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B0910277DBAED00D6FDDB /* UIButton+Extension.swift */; };
+		1F7B0913277DC9FE00D6FDDB /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B0912277DC9FE00D6FDDB /* UILabel+Extension.swift */; };
+		1F7B0915277DCC4700D6FDDB /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B0914277DCC4700D6FDDB /* RealmManager.swift */; };
+		1F7B0917277DCC7100D6FDDB /* DenominationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B0916277DCC7100D6FDDB /* DenominationModel.swift */; };
+		1F7B0919277DCC8C00D6FDDB /* CoinRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B0918277DCC8C00D6FDDB /* CoinRModel.swift */; };
+		1F7B091B277DCCFD00D6FDDB /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B091A277DCCFD00D6FDDB /* UIImage+Extension.swift */; };
+		1F7B091D277DCD2A00D6FDDB /* TransactionRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B091C277DCD2A00D6FDDB /* TransactionRModel.swift */; };
+		1F8138362775EB27008A7FA1 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8138352775EB27008A7FA1 /* DocumentPicker.swift */; };
+		1F840D592771EC4D006E9963 /* PownHeaderConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F840D582771EC4D006E9963 /* PownHeaderConstants.swift */; };
+		1F840D5B2771EE26006E9963 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F840D5A2771EE26006E9963 /* NSObject+Extension.swift */; };
+		1F847EC4273D380A00026785 /* CVBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F847EC3273D380A00026785 /* CVBaseVC.swift */; };
+		1F847EC6273D383100026785 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F847EC5273D383100026785 /* BaseVC.swift */; };
+		1F847EC9273D38B400026785 /* ApiCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F847EC8273D38B400026785 /* ApiCVCell.swift */; };
+		1F847ECB273D39DD00026785 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F847ECA273D39DD00026785 /* HomeVC.swift */; };
+		1F847ECD273D3A6F00026785 /* HomeCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F847ECC273D3A6F00026785 /* HomeCVCell.swift */; };
+		1F847ECF273D3B0D00026785 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F847ECE273D3B0D00026785 /* GradientView.swift */; };
+		1F847ED2273D3B7000026785 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F847ED1273D3B7000026785 /* UIColor+Extension.swift */; };
+		1F89801B27A5C21500E8D7DA /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F89801A27A5C21500E8D7DA /* Settings.swift */; };
+		1F8ABE08275F8FB7003E93C8 /* cloudcoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8ABE07275F8FB7003E93C8 /* cloudcoinTests.swift */; };
+		1F9887FC27D35508007D65FD /* CRC32.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9887FB27D35508007D65FD /* CRC32.swift */; };
+		1FAE194227CB53C900797B98 /* PNG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE194127CB53C900797B98 /* PNG.swift */; };
+		1FAE194427CB53EA00797B98 /* Chunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE194327CB53EA00797B98 /* Chunk.swift */; };
+		1FF5E9A327D9F6E200F798AA /* UInt32+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5E9A227D9F6E200F798AA /* UInt32+Extesion.swift */; };
+		1FF5E9A527DB28BF00F798AA /* GetTicketHeaderConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5E9A427DB28BF00F798AA /* GetTicketHeaderConstants.swift */; };
+		1FF5E9A727DB60CF00F798AA /* AES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5E9A627DB60CF00F798AA /* AES.swift */; };
+		1FF5E9AA27DCA74700F798AA /* BodyGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5E9A927DCA74700F798AA /* BodyGenerator.swift */; };
+		1FFC3BEE277AE016009F134F /* DepositVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC3BED277AE016009F134F /* DepositVC.swift */; };
+		1FFC3BF0277AF74F009F134F /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC3BEF277AF74F009F134F /* UIStoryboard+Extension.swift */; };
+		1FFC3BF2277B2A28009F134F /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC3BF1277B2A28009F134F /* Toast.swift */; };
+		A79254AED07C5EED7924FA50 /* Pods_cloudcoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA07CF122EDC0E0533EB11F5 /* Pods_cloudcoin.framework */; };
+		CF7D7E7DF9DBAD78EF262BC7 /* Pods_cloudcoinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7805596D76D516D2F5CB54 /* Pods_cloudcoinTests.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1F8ABE09275F8FB7003E93C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F2C3663272FF013006C2F8B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F2C366A272FF013006C2F8B;
+			remoteInfo = cloudcoin;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1F1DB2A1273EACE300D5C8DF /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
+		1F2157F927843060003DC73A /* Url+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Url+Extension.swift"; sourceTree = "<group>"; };
 		1F2C366B272FF013006C2F8B /* cloudcoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cloudcoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F2C366E272FF013006C2F8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F2C3670272FF013006C2F8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1F2C3672272FF013006C2F8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1F2C3675272FF013006C2F8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F2C3677272FF015006C2F8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F2C367A272FF015006C2F8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F2C367C272FF015006C2F8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F2C368327300249006C2F8B /* HostExtractRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostExtractRepo.swift; sourceTree = "<group>"; };
+		1F2C368627300263006C2F8B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1F2C3689273002F8006C2F8B /* HostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostModel.swift; sourceTree = "<group>"; };
+		1F2C368B27300FC3006C2F8B /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		1F4B69C0274F6F1100F32E75 /* CoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
+		1F4B69C2274F707000F32E75 /* UIGesture+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIGesture+Extension.swift"; sourceTree = "<group>"; };
+		1F4B69C5274F70E700F32E75 /* PownHeaderGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PownHeaderGenerator.swift; sourceTree = "<group>"; };
+		1F57D3B027A5922B00FF9CBB /* CreateDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDirectory.swift; sourceTree = "<group>"; };
+		1F594AFB274915CC003498D1 /* HeaderGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderGenerator.swift; sourceTree = "<group>"; };
+		1F64B454276752FE0040EF4D /* PownResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PownResponseModel.swift; sourceTree = "<group>"; };
+		1F666935276DC11E0075E208 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		1F666937276DC14D0075E208 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		1F66693D276DF11F0075E208 /* DirectoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryModel.swift; sourceTree = "<group>"; };
+		1F77BE4427509E870074ADFB /* CoinLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinLogic.swift; sourceTree = "<group>"; };
+		1F7B0909277D8F1300D6FDDB /* WithdrawVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawVC.swift; sourceTree = "<group>"; };
+		1F7B090C277DBA0F00D6FDDB /* WithdrawTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawTVCell.swift; sourceTree = "<group>"; };
+		1F7B090E277DBA5700D6FDDB /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		1F7B0910277DBAED00D6FDDB /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		1F7B0912277DC9FE00D6FDDB /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		1F7B0914277DCC4700D6FDDB /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		1F7B0916277DCC7100D6FDDB /* DenominationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenominationModel.swift; sourceTree = "<group>"; };
+		1F7B0918277DCC8C00D6FDDB /* CoinRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRModel.swift; sourceTree = "<group>"; };
+		1F7B091A277DCCFD00D6FDDB /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		1F7B091C277DCD2A00D6FDDB /* TransactionRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRModel.swift; sourceTree = "<group>"; };
+		1F8138352775EB27008A7FA1 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
+		1F840D582771EC4D006E9963 /* PownHeaderConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PownHeaderConstants.swift; sourceTree = "<group>"; };
+		1F840D5A2771EE26006E9963 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		1F847EC3273D380A00026785 /* CVBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVBaseVC.swift; sourceTree = "<group>"; };
+		1F847EC5273D383100026785 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		1F847EC8273D38B400026785 /* ApiCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCVCell.swift; sourceTree = "<group>"; };
+		1F847ECA273D39DD00026785 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		1F847ECC273D3A6F00026785 /* HomeCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCVCell.swift; sourceTree = "<group>"; };
+		1F847ECE273D3B0D00026785 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		1F847ED1273D3B7000026785 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		1F89801A27A5C21500E8D7DA /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		1F8ABE05275F8FB7003E93C8 /* cloudcoinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cloudcoinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F8ABE07275F8FB7003E93C8 /* cloudcoinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cloudcoinTests.swift; sourceTree = "<group>"; };
+		1F9887FB27D35508007D65FD /* CRC32.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRC32.swift; sourceTree = "<group>"; };
+		1FAE194127CB53C900797B98 /* PNG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNG.swift; sourceTree = "<group>"; };
+		1FAE194327CB53EA00797B98 /* Chunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chunk.swift; sourceTree = "<group>"; };
+		1FBCB03813B0F17209EEEB50 /* Pods-cloudcoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cloudcoin.release.xcconfig"; path = "Target Support Files/Pods-cloudcoin/Pods-cloudcoin.release.xcconfig"; sourceTree = "<group>"; };
+		1FF5E9A227D9F6E200F798AA /* UInt32+Extesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt32+Extesion.swift"; sourceTree = "<group>"; };
+		1FF5E9A427DB28BF00F798AA /* GetTicketHeaderConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTicketHeaderConstants.swift; sourceTree = "<group>"; };
+		1FF5E9A627DB60CF00F798AA /* AES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AES.swift; sourceTree = "<group>"; };
+		1FF5E9A827DC6F4400F798AA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1FF5E9A927DCA74700F798AA /* BodyGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyGenerator.swift; sourceTree = "<group>"; };
+		1FFC3BED277AE016009F134F /* DepositVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositVC.swift; sourceTree = "<group>"; };
+		1FFC3BEF277AF74F009F134F /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		1FFC3BF1277B2A28009F134F /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		62151FF9876842FF597E6CED /* Pods-cloudcoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cloudcoin.debug.xcconfig"; path = "Target Support Files/Pods-cloudcoin/Pods-cloudcoin.debug.xcconfig"; sourceTree = "<group>"; };
+		7F7805596D76D516D2F5CB54 /* Pods_cloudcoinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cloudcoinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0E73F456F7AEA1DBFB87122 /* Pods-cloudcoinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cloudcoinTests.release.xcconfig"; path = "Target Support Files/Pods-cloudcoinTests/Pods-cloudcoinTests.release.xcconfig"; sourceTree = "<group>"; };
+		A13D4F817F9EAFF185A4F9F9 /* Pods-cloudcoinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cloudcoinTests.debug.xcconfig"; path = "Target Support Files/Pods-cloudcoinTests/Pods-cloudcoinTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FA07CF122EDC0E0533EB11F5 /* Pods_cloudcoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cloudcoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +145,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A79254AED07C5EED7924FA50 /* Pods_cloudcoin.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F8ABE02275F8FB7003E93C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF7D7E7DF9DBAD78EF262BC7 /* Pods_cloudcoinTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +163,12 @@
 		1F2C3662272FF013006C2F8B = {
 			isa = PBXGroup;
 			children = (
+				1FF5E9A827DC6F4400F798AA /* README.md */,
 				1F2C366D272FF013006C2F8B /* cloudcoin */,
+				1F8ABE06275F8FB7003E93C8 /* cloudcoinTests */,
 				1F2C366C272FF013006C2F8B /* Products */,
+				F2FF6A0EFF969C66C9458D0C /* Pods */,
+				FD8C57721D3F67D4A8F6C460 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -49,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				1F2C366B272FF013006C2F8B /* cloudcoin.app */,
+				1F8ABE05275F8FB7003E93C8 /* cloudcoinTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,13 +186,167 @@
 			children = (
 				1F2C366E272FF013006C2F8B /* AppDelegate.swift */,
 				1F2C3670272FF013006C2F8B /* SceneDelegate.swift */,
-				1F2C3672272FF013006C2F8B /* ViewController.swift */,
+				1FAE193F27CB539700797B98 /* PNGExtractor */,
+				1F4B69C4274F70CC00F32E75 /* Headers */,
+				1F847ED0273D3B2A00026785 /* Extension */,
+				1F847EC7273D389600026785 /* CVCell */,
+				1F7B090B277DB9DA00D6FDDB /* TVCell */,
+				1F847EC2273D37EC00026785 /* ViewController */,
+				1F2C3688273002E9006C2F8B /* Model */,
+				1F2C36852730024F006C2F8B /* Helpers */,
+				1F2C36822730022C006C2F8B /* Repository */,
 				1F2C3674272FF013006C2F8B /* Main.storyboard */,
 				1F2C3677272FF015006C2F8B /* Assets.xcassets */,
 				1F2C3679272FF015006C2F8B /* LaunchScreen.storyboard */,
 				1F2C367C272FF015006C2F8B /* Info.plist */,
 			);
 			path = cloudcoin;
+			sourceTree = "<group>";
+		};
+		1F2C36822730022C006C2F8B /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				1F2C368327300249006C2F8B /* HostExtractRepo.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		1F2C36852730024F006C2F8B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1F2C368627300263006C2F8B /* Constants.swift */,
+				1F77BE4427509E870074ADFB /* CoinLogic.swift */,
+				1F2C368B27300FC3006C2F8B /* APIManager.swift */,
+				1F847ECE273D3B0D00026785 /* GradientView.swift */,
+				1F57D3B027A5922B00FF9CBB /* CreateDirectory.swift */,
+				1F8138352775EB27008A7FA1 /* DocumentPicker.swift */,
+				1FFC3BF1277B2A28009F134F /* Toast.swift */,
+				1F7B0914277DCC4700D6FDDB /* RealmManager.swift */,
+				1F89801A27A5C21500E8D7DA /* Settings.swift */,
+				1F9887FB27D35508007D65FD /* CRC32.swift */,
+				1FF5E9A627DB60CF00F798AA /* AES.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1F2C3688273002E9006C2F8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1F2C3689273002F8006C2F8B /* HostModel.swift */,
+				1F4B69C0274F6F1100F32E75 /* CoinModel.swift */,
+				1F64B454276752FE0040EF4D /* PownResponseModel.swift */,
+				1F66693D276DF11F0075E208 /* DirectoryModel.swift */,
+				1F840D582771EC4D006E9963 /* PownHeaderConstants.swift */,
+				1FF5E9A427DB28BF00F798AA /* GetTicketHeaderConstants.swift */,
+				1F7B0916277DCC7100D6FDDB /* DenominationModel.swift */,
+				1F7B0918277DCC8C00D6FDDB /* CoinRModel.swift */,
+				1F7B091C277DCD2A00D6FDDB /* TransactionRModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1F4B69C4274F70CC00F32E75 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				1F594AFB274915CC003498D1 /* HeaderGenerator.swift */,
+				1FF5E9A927DCA74700F798AA /* BodyGenerator.swift */,
+				1F4B69C5274F70E700F32E75 /* PownHeaderGenerator.swift */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		1F7B090B277DB9DA00D6FDDB /* TVCell */ = {
+			isa = PBXGroup;
+			children = (
+				1F7B090C277DBA0F00D6FDDB /* WithdrawTVCell.swift */,
+			);
+			path = TVCell;
+			sourceTree = "<group>";
+		};
+		1F847EC2273D37EC00026785 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1F847EC5273D383100026785 /* BaseVC.swift */,
+				1F847EC3273D380A00026785 /* CVBaseVC.swift */,
+				1F847ECA273D39DD00026785 /* HomeVC.swift */,
+				1FFC3BED277AE016009F134F /* DepositVC.swift */,
+				1F7B0909277D8F1300D6FDDB /* WithdrawVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1F847EC7273D389600026785 /* CVCell */ = {
+			isa = PBXGroup;
+			children = (
+				1F847EC8273D38B400026785 /* ApiCVCell.swift */,
+				1F847ECC273D3A6F00026785 /* HomeCVCell.swift */,
+			);
+			path = CVCell;
+			sourceTree = "<group>";
+		};
+		1F847ED0273D3B2A00026785 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1F847ED1273D3B7000026785 /* UIColor+Extension.swift */,
+				1F4B69C2274F707000F32E75 /* UIGesture+Extension.swift */,
+				1F1DB2A1273EACE300D5C8DF /* Data+Extension.swift */,
+				1FFC3BEF277AF74F009F134F /* UIStoryboard+Extension.swift */,
+				1F666935276DC11E0075E208 /* UIViewController+Extension.swift */,
+				1F666937276DC14D0075E208 /* String+Extension.swift */,
+				1F840D5A2771EE26006E9963 /* NSObject+Extension.swift */,
+				1F7B090E277DBA5700D6FDDB /* UITableView+Extension.swift */,
+				1F7B0910277DBAED00D6FDDB /* UIButton+Extension.swift */,
+				1F7B091A277DCCFD00D6FDDB /* UIImage+Extension.swift */,
+				1F7B0912277DC9FE00D6FDDB /* UILabel+Extension.swift */,
+				1F2157F927843060003DC73A /* Url+Extension.swift */,
+				1FF5E9A227D9F6E200F798AA /* UInt32+Extesion.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		1F8ABE06275F8FB7003E93C8 /* cloudcoinTests */ = {
+			isa = PBXGroup;
+			children = (
+				1F8ABE07275F8FB7003E93C8 /* cloudcoinTests.swift */,
+			);
+			path = cloudcoinTests;
+			sourceTree = "<group>";
+		};
+		1FAE193F27CB539700797B98 /* PNGExtractor */ = {
+			isa = PBXGroup;
+			children = (
+				1FAE194027CB53B400797B98 /* PNGModel */,
+			);
+			path = PNGExtractor;
+			sourceTree = "<group>";
+		};
+		1FAE194027CB53B400797B98 /* PNGModel */ = {
+			isa = PBXGroup;
+			children = (
+				1FAE194327CB53EA00797B98 /* Chunk.swift */,
+				1FAE194127CB53C900797B98 /* PNG.swift */,
+			);
+			path = PNGModel;
+			sourceTree = "<group>";
+		};
+		F2FF6A0EFF969C66C9458D0C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				62151FF9876842FF597E6CED /* Pods-cloudcoin.debug.xcconfig */,
+				1FBCB03813B0F17209EEEB50 /* Pods-cloudcoin.release.xcconfig */,
+				A13D4F817F9EAFF185A4F9F9 /* Pods-cloudcoinTests.debug.xcconfig */,
+				A0E73F456F7AEA1DBFB87122 /* Pods-cloudcoinTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FD8C57721D3F67D4A8F6C460 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA07CF122EDC0E0533EB11F5 /* Pods_cloudcoin.framework */,
+				7F7805596D76D516D2F5CB54 /* Pods_cloudcoinTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +356,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F2C367F272FF015006C2F8B /* Build configuration list for PBXNativeTarget "cloudcoin" */;
 			buildPhases = (
+				F0F1D5AE4A7F2270E7F09030 /* [CP] Check Pods Manifest.lock */,
 				1F2C3667272FF013006C2F8B /* Sources */,
 				1F2C3668272FF013006C2F8B /* Frameworks */,
 				1F2C3669272FF013006C2F8B /* Resources */,
+				6FA85862F586BB929D34D4D9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -87,6 +371,26 @@
 			productReference = 1F2C366B272FF013006C2F8B /* cloudcoin.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1F8ABE04275F8FB7003E93C8 /* cloudcoinTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F8ABE0D275F8FB7003E93C8 /* Build configuration list for PBXNativeTarget "cloudcoinTests" */;
+			buildPhases = (
+				0CBD436CA46B19928453445F /* [CP] Check Pods Manifest.lock */,
+				1F8ABE01275F8FB7003E93C8 /* Sources */,
+				1F8ABE02275F8FB7003E93C8 /* Frameworks */,
+				1F8ABE03275F8FB7003E93C8 /* Resources */,
+				B68C8C7BD995DB8BC2CF3724 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F8ABE0A275F8FB7003E93C8 /* PBXTargetDependency */,
+			);
+			name = cloudcoinTests;
+			productName = cloudcoinTests;
+			productReference = 1F8ABE05275F8FB7003E93C8 /* cloudcoinTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -94,11 +398,16 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					1F2C366A272FF013006C2F8B = {
 						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1310;
+					};
+					1F8ABE04275F8FB7003E93C8 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 1F2C366A272FF013006C2F8B;
 					};
 				};
 			};
@@ -116,6 +425,7 @@
 			projectRoot = "";
 			targets = (
 				1F2C366A272FF013006C2F8B /* cloudcoin */,
+				1F8ABE04275F8FB7003E93C8 /* cloudcoinTests */,
 			);
 		};
 /* End PBXProject section */
@@ -131,20 +441,170 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1F8ABE03275F8FB7003E93C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0CBD436CA46B19928453445F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-cloudcoinTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6FA85862F586BB929D34D4D9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cloudcoin/Pods-cloudcoin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cloudcoin/Pods-cloudcoin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-cloudcoin/Pods-cloudcoin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B68C8C7BD995DB8BC2CF3724 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cloudcoinTests/Pods-cloudcoinTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cloudcoinTests/Pods-cloudcoinTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-cloudcoinTests/Pods-cloudcoinTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0F1D5AE4A7F2270E7F09030 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-cloudcoin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1F2C3667272FF013006C2F8B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F2C3673272FF013006C2F8B /* ViewController.swift in Sources */,
+				1F7B0913277DC9FE00D6FDDB /* UILabel+Extension.swift in Sources */,
+				1F840D592771EC4D006E9963 /* PownHeaderConstants.swift in Sources */,
+				1F89801B27A5C21500E8D7DA /* Settings.swift in Sources */,
+				1F7B0911277DBAED00D6FDDB /* UIButton+Extension.swift in Sources */,
+				1F2C368727300263006C2F8B /* Constants.swift in Sources */,
+				1FAE194427CB53EA00797B98 /* Chunk.swift in Sources */,
+				1F8138362775EB27008A7FA1 /* DocumentPicker.swift in Sources */,
+				1F4B69C3274F707000F32E75 /* UIGesture+Extension.swift in Sources */,
+				1F4B69C1274F6F1100F32E75 /* CoinModel.swift in Sources */,
+				1F666938276DC14D0075E208 /* String+Extension.swift in Sources */,
+				1F1DB2A2273EACE300D5C8DF /* Data+Extension.swift in Sources */,
+				1FFC3BEE277AE016009F134F /* DepositVC.swift in Sources */,
+				1FFC3BF2277B2A28009F134F /* Toast.swift in Sources */,
+				1F9887FC27D35508007D65FD /* CRC32.swift in Sources */,
+				1F7B090D277DBA0F00D6FDDB /* WithdrawTVCell.swift in Sources */,
 				1F2C366F272FF013006C2F8B /* AppDelegate.swift in Sources */,
+				1F2C368A273002F8006C2F8B /* HostModel.swift in Sources */,
+				1F847EC6273D383100026785 /* BaseVC.swift in Sources */,
+				1F2157FA27843060003DC73A /* Url+Extension.swift in Sources */,
+				1F847ECD273D3A6F00026785 /* HomeCVCell.swift in Sources */,
+				1F57D3B127A5922B00FF9CBB /* CreateDirectory.swift in Sources */,
+				1FF5E9A727DB60CF00F798AA /* AES.swift in Sources */,
 				1F2C3671272FF013006C2F8B /* SceneDelegate.swift in Sources */,
+				1FFC3BF0277AF74F009F134F /* UIStoryboard+Extension.swift in Sources */,
+				1F7B090F277DBA5700D6FDDB /* UITableView+Extension.swift in Sources */,
+				1F847ED2273D3B7000026785 /* UIColor+Extension.swift in Sources */,
+				1FF5E9AA27DCA74700F798AA /* BodyGenerator.swift in Sources */,
+				1F7B091B277DCCFD00D6FDDB /* UIImage+Extension.swift in Sources */,
+				1F66693E276DF11F0075E208 /* DirectoryModel.swift in Sources */,
+				1F840D5B2771EE26006E9963 /* NSObject+Extension.swift in Sources */,
+				1F77BE4527509E870074ADFB /* CoinLogic.swift in Sources */,
+				1F7B0919277DCC8C00D6FDDB /* CoinRModel.swift in Sources */,
+				1F666936276DC11E0075E208 /* UIViewController+Extension.swift in Sources */,
+				1FAE194227CB53C900797B98 /* PNG.swift in Sources */,
+				1F64B455276752FE0040EF4D /* PownResponseModel.swift in Sources */,
+				1FF5E9A527DB28BF00F798AA /* GetTicketHeaderConstants.swift in Sources */,
+				1F7B091D277DCD2A00D6FDDB /* TransactionRModel.swift in Sources */,
+				1F7B0915277DCC4700D6FDDB /* RealmManager.swift in Sources */,
+				1F4B69C6274F70E700F32E75 /* PownHeaderGenerator.swift in Sources */,
+				1F2C368427300249006C2F8B /* HostExtractRepo.swift in Sources */,
+				1F7B090A277D8F1300D6FDDB /* WithdrawVC.swift in Sources */,
+				1F7B0917277DCC7100D6FDDB /* DenominationModel.swift in Sources */,
+				1FF5E9A327D9F6E200F798AA /* UInt32+Extesion.swift in Sources */,
+				1F847EC9273D38B400026785 /* ApiCVCell.swift in Sources */,
+				1F847EC4273D380A00026785 /* CVBaseVC.swift in Sources */,
+				1F847ECF273D3B0D00026785 /* GradientView.swift in Sources */,
+				1F847ECB273D39DD00026785 /* HomeVC.swift in Sources */,
+				1F594AFC274915CC003498D1 /* HeaderGenerator.swift in Sources */,
+				1F2C368C27300FC3006C2F8B /* APIManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F8ABE01275F8FB7003E93C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F8ABE08275F8FB7003E93C8 /* cloudcoinTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1F8ABE0A275F8FB7003E93C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F2C366A272FF013006C2F8B /* cloudcoin */;
+			targetProxy = 1F8ABE09275F8FB7003E93C8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1F2C3674272FF013006C2F8B /* Main.storyboard */ = {
@@ -284,14 +744,17 @@
 		};
 		1F2C3680272FF015006C2F8B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62151FF9876842FF597E6CED /* Pods-cloudcoin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BXQH4AWF8P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = cloudcoin/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -305,6 +768,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mou.cloudcoin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -312,14 +778,17 @@
 		};
 		1F2C3681272FF015006C2F8B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FBCB03813B0F17209EEEB50 /* Pods-cloudcoin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BXQH4AWF8P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = cloudcoin/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -333,8 +802,58 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mou.cloudcoin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1F8ABE0B275F8FB7003E93C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A13D4F817F9EAFF185A4F9F9 /* Pods-cloudcoinTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BXQH4AWF8P;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mou.cloudcoinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cloudcoin.app/cloudcoin";
+			};
+			name = Debug;
+		};
+		1F8ABE0C275F8FB7003E93C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0E73F456F7AEA1DBFB87122 /* Pods-cloudcoinTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BXQH4AWF8P;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mou.cloudcoinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cloudcoin.app/cloudcoin";
 			};
 			name = Release;
 		};
@@ -355,6 +874,15 @@
 			buildConfigurations = (
 				1F2C3680272FF015006C2F8B /* Debug */,
 				1F2C3681272FF015006C2F8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F8ABE0D275F8FB7003E93C8 /* Build configuration list for PBXNativeTarget "cloudcoinTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F8ABE0B275F8FB7003E93C8 /* Debug */,
+				1F8ABE0C275F8FB7003E93C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -8,18 +8,21 @@
 import Foundation
 
 class BodyGenerator: NSObject{
-    static func generateBody(coins: [CoinsBinary]) -> [UInt8]{
-        var body = [UInt8]()
-        body.append(contentsOf: CoinLogic.generateCryptoString(count: 12).stringToUInt8Array())
-        let crc32 = CRC32.checksum(bytes: Array(body[0...11])).convertUint32ToUint8()
-        body.append(contentsOf: crc32)
+    static func generateBody(coins: [CoinsBinary]) -> ([UInt8], [UInt8]){
+        var allCoin = [UInt8]()
+        var challenge = CoinLogic.generateCryptoString(count: 12).stringToUInt8Array()
+        //allCoin.append(contentsOf: CoinLogic.generateCryptoString(count: 12).stringToUInt8Array())
+        //let crc32 = CRC32.checksum(bytes: Array(allCoin[0...11])).convertUint32ToUint8()
+        let crc32 = CRC32.checksum(bytes: challenge).convertUint32ToUint8()
+        challenge.append(contentsOf: crc32)
+        
         for coin in coins{
-            body.append(contentsOf: coin.SNO)
-            body.append(contentsOf: coin.AN)
+            allCoin.append(contentsOf: coin.SNO)
+            allCoin.append(contentsOf: coin.AN)
             if coin.PAN != nil{
-                body.append(contentsOf: coin.PAN!)
+                allCoin.append(contentsOf: coin.PAN!)
             }
         }
-        return body
+        return (challenge, allCoin)
     }
 }

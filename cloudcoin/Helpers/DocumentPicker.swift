@@ -41,7 +41,8 @@ class DocumentPicker: NSObject, UIDocumentPickerDelegate{
                 // Get the raw data from the file.
                 let rawData: Data = try Data(contentsOf: urls[i])
                 // Return the raw data as an array of bytes.
-                uintArray = [UInt8](rawData)
+                //uintArray = [UInt8](rawData)
+                uintArray.append(contentsOf: [UInt8](rawData))
                 print(uintArray)//([UInt8](rawData))
             } catch {
                 // Couldn't read the file.

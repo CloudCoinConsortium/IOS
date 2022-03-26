@@ -51,7 +51,7 @@ class DepositVC: CVBaseVC {
     @objc private func depositAction(){
         if coins.count > 0 && activeRaida >= 16{
             memoTF.resignFirstResponder()
-            let _ = PownHeaderGenerator(hostModelArray: hostModelArray, uintArray: coins)
+            let _ = PownHeaderGenerator(hostModelArray: hostModelArray, uintArray: coins, activeRaida: self.activeRaida)
         }else{
             self.view.makeToast("There are not enough RAIDA available to perform the deposit.")
         }

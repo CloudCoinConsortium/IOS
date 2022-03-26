@@ -19,7 +19,7 @@ class HeaderGenerator: NSObject{
         header[5] = commandType
         header[6] = 0
         header[7] = 0
-        header[8] = 0
+        header[8] = 1
         header[9] = nonce?[0] ?? 0
         header[10] = nonce?[1] ?? 0
         header[11] = nonce?[2] ?? 0

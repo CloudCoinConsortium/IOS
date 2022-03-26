@@ -96,7 +96,7 @@ class CreateDirectory: NSObject{
     }
     private func createAndWriteFile(){//}(fileName: String, data: CoinModel, directory: String) {
         let documentDirectoryUrl = URL(string: getDirectoryPath(path: self.directoryModel.directory))
-        let fileUrl = documentDirectoryUrl?.appendingPathComponent(self.directoryModel.fileName)
+        let fileUrl = documentDirectoryUrl?.appendingPathComponent(self.directoryModel.fileName).appendingPathExtension(self.directoryModel.fileExt)
         //data to write in file.
         // Transform array into data and save it into file
         let rawData = Data(self.directoryModel.data)

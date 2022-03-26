@@ -40,10 +40,12 @@ struct Constants{
        "https://g26.cloudcoinconsortium.art/host.txt"]
     
     static let maxCoins = 28
+    static let maxPackets = 64
+    static let unitPerCoin = 448
 }
 
 enum Commands: Int{
-    case POWN = 0
+    case Pown = 0
     case Detect = 1
     case Find = 2
     case Fix = 3

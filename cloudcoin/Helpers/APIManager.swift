@@ -62,18 +62,25 @@ class APIManager{
     }
     func receiveUDP(completion: @escaping ([UInt8]) -> ()) {
         self.connection?.receiveMessage { (data, context, isComplete, error) in
+            if error != nil{
+                print("HERE1")
+                completion([UInt8]())
+            }
             if (isComplete) {
                 //print("Receive is complete")
                 if (data != nil) {
                     let hexEncodedStr = data?.hexEncodedString() ?? ""
                     //print("RESPONSE HEX STR \(hexEncodedStr) IP ADDRESS \(self.hostUDP ?? NWEndpoint.Host.init("")) \(self.portUDP ?? NWEndpoint.Port.init("") ?? 0)") // ==> 2525
+                    print("HERE2")
                     completion(hexEncodedStr.stringToUInt8Array())
                 } else {
                     //print("Data == nil")
+                    print("HERE3")
                     completion([UInt8]())
                 }
             }else{
                 //print("\(error)")
+                print("HERE4")
                 completion([UInt8]())
             }
         }

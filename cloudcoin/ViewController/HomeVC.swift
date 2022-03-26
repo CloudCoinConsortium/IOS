@@ -35,6 +35,9 @@ class HomeVC: CVBaseVC {
         denoCollectionView.dataSource = self
         denoCollectionView.delegate = self
         
+        //calculateSN()
+        
+        
         depositView.isUserInteractionEnabled = true
         depositView.addSingleTapGestureRecognizerWithResponder { [weak self] (tap) in
             guard let `self` = self else { return }
@@ -48,6 +51,17 @@ class HomeVC: CVBaseVC {
         }
 
     }
+    /*private func calculateSN(){
+        let array : [UInt8] = [4, 151, 34]
+        let data = Data(array)
+        let hexString = data.hexEncodedString()
+        //let value = hexString.compactMap(\.hexDigitValue)//hexString.stringToUInt8Array()
+        //let newStr = value.compactMap({$0})
+        if let value = UInt64(hexString, radix: 16) {
+            print(value)
+        }
+       // print("HELLO HERE \(newStr)")
+    }*/
     private func extractImageData(){
         if let img = UIImage(named: "ExampleImage") {
             if let data = img.pngData() {

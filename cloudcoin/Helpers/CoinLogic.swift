@@ -24,10 +24,14 @@ class CoinLogic: NSObject{
                 uuidStringReplacement += String(format: "%02x", randomBytes[index])
             }
             //print("uuidStringReplacement is \(uuidStringReplacement) \(uuidStringReplacement.count)")
-            return uuidStringReplacement//"bbbaaaaaaaaabbbbbbbbbbbbbbbbbbb"//"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"//uuidStringReplacement //"00000000000000000000000000000000"
+            if count == 12{
+                return "aaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+            return "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"//"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"//uuidStringReplacement//"bbbaaaaaaaaabbbbbbbbbbbbbbbbbbb"//"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"//uuidStringReplacement //"00000000000000000000000000000000"
         } else {
             print("SecRandomCopyBytes failed for some reason")
             return ""
         }
     }
+    
 }
