@@ -13,6 +13,7 @@ class CoinRModel: Object {
     @objc dynamic var amount = ""
     @objc dynamic var file_name = ""
     @objc dynamic var denomination = 0
+    @objc dynamic var directory_name = ""
     
     override static func primaryKey() -> String? {
         return "id"

@@ -25,7 +25,9 @@ class CVBaseVC: BaseVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         activeRaida = 0
-        hostModelArray = HostExtractRepo.getHostArray()
+        if hostModelArray == nil{
+            hostModelArray = HostExtractRepo.getHostArray()
+        }
         collectionView.reloadData()
     }
 }

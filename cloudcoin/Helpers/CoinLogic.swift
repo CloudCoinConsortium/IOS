@@ -15,7 +15,7 @@ class CoinLogic: NSObject{
         return String((0..<length).map{ _ in CoinLogic.letters.randomElement()! })
     }
     
-    static func generateCryptoString(count: Int) -> String{
+    static func generateCryptoString(count: Int, an: String?=nil) -> String{
         var randomBytes = [UInt8](repeating: 0, count: 16)
         let result = Int(SecRandomCopyBytes(kSecRandomDefault, count, &randomBytes))
         if result == 0 {
@@ -27,7 +27,12 @@ class CoinLogic: NSObject{
             if count == 12{
                 return "aaaaaaaaaaaaaaaaaaaaaaaa"
             }
-            return "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"//"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"//uuidStringReplacement//"bbbaaaaaaaaabbbbbbbbbbbbbbbbbbb"//"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"//uuidStringReplacement //"00000000000000000000000000000000"
+            if (an ?? "").contains("a"){
+                return "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            }else{
+                return "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            }
+            //"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"//uuidStringReplacement//"bbbaaaaaaaaabbbbbbbbbbbbbbbbbbb"//"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"//uuidStringReplacement //"00000000000000000000000000000000"
         } else {
             print("SecRandomCopyBytes failed for some reason")
             return ""

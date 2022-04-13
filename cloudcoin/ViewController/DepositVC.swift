@@ -51,7 +51,7 @@ class DepositVC: CVBaseVC {
     @objc private func depositAction(){
         if coins.count > 0 && activeRaida >= 16{
             memoTF.resignFirstResponder()
-            let _ = PownHeaderGenerator(hostModelArray: hostModelArray, uintArray: coins, activeRaida: self.activeRaida)
+            let _ = PownHeaderGenerator(hostModelArray: hostModelArray, uintArray: coins, activeRaida: self.activeRaida, delegate: self)
         }else{
             self.view.makeToast("There are not enough RAIDA available to perform the deposit.")
         }
@@ -82,5 +82,12 @@ extension DepositVC: DocumentPickerDelegate{
 extension DepositVC: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+    }
+}
+extension DepositVC: PownDelegate{
+    func pownIsSuccessfull(bool: Bool) {
+        if bool{
+            self.view.makeToast("Coin submitted successfully!")
+        }
     }
 }

@@ -19,14 +19,15 @@ class RealmManager: NSObject{
         return (RealmManager.realm.objects(TransactionRModel.self).map{$0.id}.max() ?? 0) + 1
         
     }
-    static func addCoinRModel(amount: String?=nil, deno: Int?=nil, fileName: String, completionHandler: @escaping(Bool?, CoinRModel?) -> ()){
+    static func addCoinRModel(directoryModel: DirectoryBinaryModel, completionHandler: @escaping(Bool?, CoinRModel?) -> ()){
         do{
             try realm.safeWrite { // 2
                 let coinRdata = CoinRModel()// 3
                 coinRdata.id = RealmManager.nextId() // 4
-                coinRdata.amount = amount ?? "1"
-                coinRdata.denomination = deno ?? 1
-                coinRdata.file_name = fileName
+                coinRdata.amount = "1"
+                coinRdata.denomination = 1
+                coinRdata.file_name = directoryModel.fileName
+                coinRdata.directory_name = directoryModel.directory
                 realm.add(coinRdata) // 5
                 completionHandler(true, coinRdata)
             }

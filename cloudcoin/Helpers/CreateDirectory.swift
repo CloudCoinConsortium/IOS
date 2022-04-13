@@ -162,9 +162,8 @@ class CreateDirectory: NSObject{
             return nil
         }
     }
-    func moveItem(fromPath: String, toPath: String, filename: String, fileextension: String){
-        if let fromPath = URL(string: getDirectoryPath(path: fromPath))?.appendingPathComponent(filename).appendingPathExtension(fileextension) {
-            //DispatchQueue.global().async {
+    func moveItem(fromPath: String, toPath: String, filename: String){
+        if let fromPath = URL(string: getDirectoryPath(path: fromPath))?.appendingPathComponent(filename).appendingPathExtension(CreateDirectory.binName) {
             do{
                 let toPathHere = URL(string: getDirectoryPath(path: toPath))?.appendingPathComponent(filename).appendingPathExtension(CreateDirectory.binName)
                 print("TO PATH \(toPathHere)")

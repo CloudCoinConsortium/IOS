@@ -87,10 +87,8 @@ class WithdrawVC: CVBaseVC {
     }
     private func designButton(sender: UIButton){
         if sender.isSelected{
-            //sender.setTitleColor(UIColor(hex: 0x2B8CFF), for: UIControl.State())
             sender.setImage(UIImage(named: "RadioFilled"), for: UIControl.State())
         }else{
-            //sender.setTitleColor(UIColor(hex: 0x485973), for: UIControl.State())
             sender.setImage(UIImage(named: "RadioUnfilled"), for: UIControl.State())
         }
     }
@@ -114,11 +112,6 @@ class WithdrawVC: CVBaseVC {
         numberFormatter.numberStyle = .decimal
         let formattedNumber = numberFormatter.string(from: NSNumber(value:amount))
         totalLabel.setAttributedText1(text: formattedNumber ?? "", icon: "Coin")
-        /*if totalAmount == 0{
-         withdrawLabel.isHidden = true
-         exportButton.isHidden = true
-         shareButton.isHidden = true
-         }*/
     }
     @objc private func backAction(){
         self.goBack()
@@ -141,11 +134,7 @@ class WithdrawVC: CVBaseVC {
         //shareActionFiles()
         
         if totalAmount > 0{
-            if individualButton.isSelected{
-                individualTransaction()
-            }else{
-                stackTransaction()
-            }
+            individualTransaction()
             shareActionFiles()
         }else{
             self.view.makeToast("You don't have cloudcoins to withdraw")
@@ -171,27 +160,17 @@ class WithdrawVC: CVBaseVC {
     private func individualTransaction(){
         coinModel = RealmManager.getFileName(denoModel: denoModel ?? [DenominationModel]()) ?? [CoinRModel]()
         var amount = 0
-        for i in 0..<coinModel.count{
+        for i in 0..<totalAmount{//coinModel.count{
             amount += Int(coinModel[i].amount) ?? 0 * coinModel[i].denomination
             print("FILENAME \(coinModel[i].file_name)")
-            let hello = createDirectory.readDataFromFile2(type: CoinModel.self, path: CreateDirectory.bankName, filename: "\(coinModel[i].file_name).\(CreateDirectory.cloudcoinName)")
+            let hello = createDirectory.readDataFromFile2(type: CoinModel.self, path: CreateDirectory.bankName, filename: "\(coinModel[i].file_name)")
             print("HELLO HERE \(String(describing: hello))")
             let fileName = coinModel[i].file_name
-            createDirectory.moveItem(fromPath: CreateDirectory.bankName, toPath: CreateDirectory.exportedName, filename: "\(fileName)", fileextension: CreateDirectory.cloudcoinName)
-            fileNames.append("\(fileName).\(CreateDirectory.binName)")
+            createDirectory.moveItem(fromPath: coinModel[i].directory_name, toPath: CreateDirectory.exportedName, filename: coinModel[i].file_name)
+            fileNames.append("\(fileName)")
             RealmManager.deleteCoinRModel(coin: coinModel[i])
         }
         writeToRealm(amount: String(amount), count: self.coinModel.count)
-    }
-    private func stackTransaction(){
-        let stackfileName = RealmManager.getStackFilename(denoModel: denoModel ?? [DenominationModel]()) ?? [[CoinRModel]]()
-        var amount = 0
-        for i in 0..<stackfileName.count{
-            if stackfileName[i].count > 0{
-                amount += processInternal(coin: stackfileName[i])
-            }
-        }
-        writeToRealm(amount: String(amount), count: amount)
     }
     private func writeToRealm(amount: String, count: Int){
         RealmManager.addTransactionRModel(amount: amount, memo: self.memoTF.text ?? "Amount withdrawn") { [weak self] (success) in
@@ -207,6 +186,11 @@ class WithdrawVC: CVBaseVC {
         }
     }
     private func openActivityController(data: [URL]){
+        /*        let viewShare = PNGView(name: nil)
+         if let pngData = viewShare.convertToPng() {
+             print("PNG DATA \(pngData.hexEncodedString().stringToUInt8Array())")
+         }
+*/
         let activityController = UIActivityViewController(activityItems: data, applicationActivities: nil)
         activityController.completionWithItemsHandler = { activity, completed, items, error in
             if completed{

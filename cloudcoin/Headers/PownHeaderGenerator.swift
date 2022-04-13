@@ -8,6 +8,7 @@
 import CoreGraphics
 import Foundation
 import CryptoKit
+import UIKit
 /*1. First calculate no of requests —> first change
  
  2. Recalculate header and body together on one go instead of breaking it like before this is required for refer below
@@ -40,10 +41,13 @@ class PownHeaderGenerator: NSObject{
     
     private var activeRaida = 0
     
-    convenience init(hostModelArray: [HostModel]?, uintArray: [UInt8]?=nil, activeRaida: Int) {
+    private var delegate: PownDelegate?
+    
+    convenience init(hostModelArray: [HostModel]?, uintArray: [UInt8]?=nil, activeRaida: Int, delegate: PownDelegate?) {
         self.init()
         self.hostModelArray = hostModelArray
         self.activeRaida = activeRaida
+        self.delegate = delegate
         if let uintArray = uintArray {
             self.totalArray = uintArray
             self.numCoin = self.totalArray.count / Constants.unitPerCoin
@@ -88,7 +92,7 @@ class PownHeaderGenerator: NSObject{
                 AN = Array(newArraySlice1)
                 if pownRequests[requestNo].command == .Pown{
                     PAN = [UInt8]()
-                    PAN = CoinLogic.generateCryptoString(count: 16).stringToUInt8Array()
+                    PAN = CoinLogic.generateCryptoString(count: 16, an: Data(AN).hexEncodedString()).stringToUInt8Array()
                     pownRequests[requestNo].pownResponseBinary.coin[j/Constants.unitPerCoin].pan[i] = PAN ?? [UInt8]()
                 }
                 coins.append(CoinsBinary(SNO: SNO, AN: AN, PAN: PAN))
@@ -204,6 +208,8 @@ class PownHeaderGenerator: NSObject{
                     
                 }else if pownResponse == 242{
                     fail += 1
+                }else if pownResponse == 243{
+                    
                 }
             }
             uintArray.replaceSubrange(Range(48...(448 - 1)), with: newArray)
@@ -230,12 +236,14 @@ class PownHeaderGenerator: NSObject{
         
         let directoryModel = DirectoryBinaryModel(fileName: "\(value ?? 0)", fileExt:  CreateDirectory.binName, data: newCoin, directory: directory)
         
-        if directory == CreateDirectory.bankName{
-            RealmManager.addCoinRModel(fileName: "\(value ?? 0)") { completed, coin in
+        if directory != CreateDirectory.counterfeitName{
+            RealmManager.addCoinRModel(directoryModel: directoryModel) { completed, coin in
                 let _ = CreateDirectory(directoryModel: directoryModel)
+                self.delegate?.pownIsSuccessfull(bool: true)
             }
         }else{
             let _ = CreateDirectory(directoryModel: directoryModel)
+            self.delegate?.pownIsSuccessfull(bool: true)
         }
     }
     /*private func generatePownBinary(index: Int, coins: [CoinsBinary], udpNo: Int, isTrailing: Bool?=nil, isFirst: Bool?=nil) -> [UInt8]{

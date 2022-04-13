@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !Settings.shared().isFolderCreated{
             let _ = CreateDirectory(isFirst: true)
         }
+        let configuration = Realm.Configuration(
+            schemaVersion: 1,
+            migrationBlock: { migration, oldSchemaVersion in
+                if oldSchemaVersion < 1 {
+                    // if you added a new property or removed a property you don't
+                    // have to do anything because Realm automatically detects that
+                }
+            }
+        )
+        Realm.Configuration.defaultConfiguration = configuration
+
+        // opening the Realm file now makes sure that the migration is performed
+        _ = try! Realm()
         return true
     }
 
