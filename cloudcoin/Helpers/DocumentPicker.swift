@@ -21,7 +21,6 @@ class DocumentPicker: NSObject, UIDocumentPickerDelegate{
         self.init()
         self.vc = vc
         self.delegate = delegate
-        //self.openDocumentPicker()
     }
     
     func openDocumentPicker(){
@@ -41,9 +40,8 @@ class DocumentPicker: NSObject, UIDocumentPickerDelegate{
                 // Get the raw data from the file.
                 let rawData: Data = try Data(contentsOf: urls[i])
                 // Return the raw data as an array of bytes.
-                //uintArray = [UInt8](rawData)
                 uintArray.append(contentsOf: [UInt8](rawData))
-                print(uintArray)//([UInt8](rawData))
+                print(uintArray)
             } catch {
                 // Couldn't read the file.
                 print("NO DATA COULD BE READ")

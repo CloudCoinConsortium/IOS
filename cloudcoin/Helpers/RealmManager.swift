@@ -100,7 +100,6 @@ class RealmManager: NSObject{
                 let coin = realm.objects(CoinRModel.self).filter("denomination == %@", denoModel[i]?.deno ?? 0)
                 let array : [CoinRModel] = Array(coin[0..<(denoModel[i]?.selfAmount ?? 0)])
                 coins.append(contentsOf: array)
-                //print("HELLO HERE \(denoModel[i]?.deno) \(denoModel[i]?.amount) \(coin.count) \(array.count) \(coins.count)")
             }
         }
         return coins
@@ -114,7 +113,7 @@ class RealmManager: NSObject{
                 let coin = realm.objects(CoinRModel.self).filter("denomination == %@", denoModel[i]?.deno ?? 0)
                 let array : [CoinRModel] = Array(coin[0..<(denoModel[i]?.selfAmount ?? 0)])
                 if denoModel[i]?.deno == 1{
-                    coins[0].append(contentsOf: array)// = array
+                    coins[0].append(contentsOf: array)
                 }else if denoModel[i]?.deno == 5{
                     coins[1] = array
                 }else if denoModel[i]?.deno == 25{

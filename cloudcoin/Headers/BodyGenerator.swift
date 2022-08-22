@@ -11,8 +11,6 @@ class BodyGenerator: NSObject{
     static func generateBody(coins: [CoinsBinary]) -> ([UInt8], [UInt8]){
         var allCoin = [UInt8]()
         var challenge = CoinLogic.generateCryptoString(count: 12).stringToUInt8Array()
-        //allCoin.append(contentsOf: CoinLogic.generateCryptoString(count: 12).stringToUInt8Array())
-        //let crc32 = CRC32.checksum(bytes: Array(allCoin[0...11])).convertUint32ToUint8()
         let crc32 = CRC32.checksum(bytes: challenge).convertUint32ToUint8()
         challenge.append(contentsOf: crc32)
         

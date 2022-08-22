@@ -5,6 +5,7 @@
 //  Created by Moumita China on 18/12/21.
 //
 
+import Network
 import Foundation
 
 extension String{
@@ -58,5 +59,21 @@ extension String{
             newH1 = h1
         }
         return newH1
+    }
+}
+extension String{
+    func stringHelper() -> [HostModel]{
+        var hostModels = [HostModel]()
+        let lines = self.split(whereSeparator: \.isNewline)
+        for i in 2..<27{
+            let (host, port) = String(lines[i]).stringSplitSubHelper()
+            hostModels.append(HostModel(ipAddress: host, portNumber: port))
+        }
+        return hostModels
+    }
+    func stringSplitSubHelper()-> ( NWEndpoint.Host,  NWEndpoint.Port){
+        let arrayString = self.components(separatedBy: ":")
+        let secSubArray = arrayString[1].components(separatedBy: " ")
+        return (NWEndpoint.Host.init(arrayString[0]), NWEndpoint.Port.init(secSubArray[0]) ?? 0)
     }
 }

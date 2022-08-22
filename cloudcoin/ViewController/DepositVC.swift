@@ -32,7 +32,7 @@ class DepositVC: CVBaseVC {
         memoTF.layer.cornerRadius = 12.0
         memoTF.clipsToBounds = true
         memoTF.layer.borderWidth = 0.6
-        memoTF.layer.borderColor = UIColor.systemBlue.cgColor//.withAlphaComponent(0.6).cgColor
+        memoTF.layer.borderColor = UIColor.systemBlue.cgColor
         memoTF.placeholder = "Your Memo"
         memoTF.delegate = self
         view.endEditing(true)

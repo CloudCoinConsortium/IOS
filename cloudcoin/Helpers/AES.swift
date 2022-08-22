@@ -11,7 +11,6 @@ import CryptoKit
 class AESEncrypt{
     private var key: SymmetricKey!
     func encryptAESGSM(key: [UInt8], array: [UInt8]){
-        //let message = Data(base64Encoded: Data(array))//(String(bytes: array, encoding: .utf8) ?? "").data(using: .utf8)
         self.key = SymmetricKey(data: Data(key))
         print("KEY BITS \(self.key.bitCount)")
             let encrypt = try! AES.GCM.seal( Data(array), using: self.key)//AES.GCM.Nonce())

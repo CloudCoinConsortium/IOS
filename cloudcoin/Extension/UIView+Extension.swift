@@ -24,11 +24,5 @@ extension UIView {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image?.pngData()
-
-        /*UIGraphicsBeginImageContextWithOptions(self.layer.frame.size, false, 1)
-        self.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let viewImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return viewImage.pngData()*/
     }
 }

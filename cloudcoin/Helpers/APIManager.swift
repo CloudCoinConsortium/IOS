@@ -15,9 +15,8 @@ class APIManager{
     private var dataArray: [UInt8] = []
     
     
-    init(hostModel: HostModel?=nil, /*sendString: String,*/ dataArray: [UInt8], completion: @escaping ([UInt8]) -> ()) {
+    init(hostModel: HostModel?=nil, dataArray: [UInt8], completion: @escaping ([UInt8]) -> ()) {
         // Hack to wait until everything is set up
-        //print("IP ADDRESS \(hostModel?.ipAddress ?? NWEndpoint.Host.init("")) \(hostModel?.portNumber ?? NWEndpoint.Port.init("") ?? 0)")
         self.hostUDP = hostModel?.ipAddress ?? NWEndpoint.Host.init("")
         self.portUDP = hostModel?.portNumber ?? NWEndpoint.Port.init("") ?? 0
         self.dataArray = dataArray
@@ -67,20 +66,17 @@ class APIManager{
                 completion([UInt8]())
             }
             if (isComplete) {
-                //print("Receive is complete")
+                print("Receive is complete")
                 if (data != nil) {
                     let hexEncodedStr = data?.hexEncodedString() ?? ""
-                    //print("RESPONSE HEX STR \(hexEncodedStr) IP ADDRESS \(self.hostUDP ?? NWEndpoint.Host.init("")) \(self.portUDP ?? NWEndpoint.Port.init("") ?? 0)") // ==> 2525
-                    print("HERE2")
+                    print("RESPONSE HEX STR \(hexEncodedStr) IP ADDRESS \(self.hostUDP ?? NWEndpoint.Host.init("")) \(self.portUDP ?? NWEndpoint.Port.init("") ?? 0)") // ==> 2525
                     completion(hexEncodedStr.stringToUInt8Array())
                 } else {
-                    //print("Data == nil")
-                    print("HERE3")
+                    print("Data == nil")
                     completion([UInt8]())
                 }
             }else{
-                //print("\(error)")
-                print("HERE4")
+                print("\(error)")
                 completion([UInt8]())
             }
         }

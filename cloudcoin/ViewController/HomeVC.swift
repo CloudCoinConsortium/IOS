@@ -15,18 +15,9 @@ class HomeVC: CVBaseVC {
     @IBOutlet weak var totalLabel: UILabel!
     
     private var denoModel: [DenominationModel?]?
-
-    //private var totalAmoumt = 0
-    
-    //private var urls = [URL]()
     private var importedCoins = [CoinModelData]()
-    //private var allPans = [[String]](repeating: nil, count: 25)
-    //private var pownResponse = [String?](repeating: nil, count: 25)
-    //private var pownPass = 0
     private var getTicket = [String?](repeating: nil, count: 25)
     
-    //private var pownResponseArr = [PownResponseModel]()
-    //private var pownResponse = PownResponseModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +25,6 @@ class HomeVC: CVBaseVC {
         denoCollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         denoCollectionView.dataSource = self
         denoCollectionView.delegate = self
-        
-        //calculateSN()
-        
-        
         depositView.isUserInteractionEnabled = true
         depositView.addSingleTapGestureRecognizerWithResponder { [weak self] (tap) in
             guard let `self` = self else { return }
@@ -50,28 +37,6 @@ class HomeVC: CVBaseVC {
             self.goToWithdrawVC()
         }
 
-    }
-    /*private func calculateSN(){
-        let array : [UInt8] = [4, 151, 34]
-        let data = Data(array)
-        let hexString = data.hexEncodedString()
-        //let value = hexString.compactMap(\.hexDigitValue)//hexString.stringToUInt8Array()
-        //let newStr = value.compactMap({$0})
-        if let value = UInt64(hexString, radix: 16) {
-            print(value)
-        }
-       // print("HELLO HERE \(newStr)")
-    }*/
-    private func extractImageData(){
-        if let img = UIImage(named: "ExampleImage") {
-            if let data = img.pngData() {
-               // Handle operations with data here...
-                print("IMAGE DATA HERE \(data.hexEncodedString())")
-                let uintArray = [UInt8](data)
-                print("IMAGE DATA HERE \(uintArray) COUNT \(uintArray.count)")
-                //let _ = PownImageHeaderGenerator(hostModelArray: hostModelArray, uintArray: uintArray)
-            }
-        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -116,7 +81,7 @@ extension HomeVC{
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
         if collectionView == self.denoCollectionView{
             let width = ((collectionView.frame.width) / 5) - 8.0
-            return CGSize(width: width, height: width * 1.25)//100.0)
+            return CGSize(width: width, height: width * 1.25)
         }else{
             return super.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: indexPath)
         }
@@ -136,21 +101,5 @@ extension HomeVC{
         }else{
             return super.collectionView(collectionView, layout: collectionViewLayout, minimumLineSpacingForSectionAt: section)
         }
-    }
-}
-extension HomeVC{
-    private func findNeighbours(position: Int){
-        let array = [-6, -5, -4, -1, 1, 4, 5, 6]
-        var servers = [Int]()
-        for i in 0..<array.count{
-            var server = array[i] + position
-            if server < 0{
-                server += 25
-            }else if server > 24{
-                server -= 25
-            }
-            servers.append(server)
-        }
-        //print("GET TICKET FROM SERVERS \(servers)")
     }
 }

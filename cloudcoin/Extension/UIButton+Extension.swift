@@ -11,8 +11,7 @@ import Foundation
 
 extension UIButton{
     func setAttributedText1(text: String?="", icon: String){
-        //let fullString = NSMutableAttributedString(string: "\(text ?? "") ")
-        let fullString = NSMutableAttributedString(string: "\(text ?? "") ")//, attributes: [NSAttributedString.Key.foregroundColor : color])
+        let fullString = NSMutableAttributedString(string: "\(text ?? "") ")
          // create our NSTextAttachment
         let image1Attachment = NSTextAttachment()
         image1Attachment.image = UIImage(named: icon)

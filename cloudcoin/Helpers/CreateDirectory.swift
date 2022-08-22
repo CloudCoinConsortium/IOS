@@ -49,7 +49,6 @@ class CreateDirectory: NSObject{
             let newDirectory = directory.appendingPathComponent(CreateDirectory.appName)
             print("DIRECTORY HERE \(newDirectory)")
             var result = false
-            //DispatchQueue.global().async {
             do{
                 try FileManager.default.createDirectory(atPath: newDirectory.path, withIntermediateDirectories: true, attributes: nil)
                 result = true
@@ -59,7 +58,6 @@ class CreateDirectory: NSObject{
                 NSLog("Unable to create directory \(error.debugDescription)")
                 result = false
             }
-            //}
             return result
         }else{
             return false
@@ -69,21 +67,18 @@ class CreateDirectory: NSObject{
         if let directory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first{
             let newDirectory = directory.appendingPathComponent(CreateDirectory.appName).appendingPathComponent(name)
             print("DIRECTORY HERE \(newDirectory)")
-            //DispatchQueue.global().async {
             do{
                 try FileManager.default.createDirectory(atPath: newDirectory.path, withIntermediateDirectories: true, attributes: nil)
             }
             catch let error as NSError{
                 NSLog("Unable to create directory \(error.debugDescription)")
             }
-            //}
         }
     }
     private func createSubSubDirectory(path: String, name : String){
         if let directory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first{
             let newDirectory = directory.appendingPathComponent(CreateDirectory.appName).appendingPathComponent(path).appendingPathComponent(name)
             print("DIRECTORY HERE \(newDirectory)")
-            //DispatchQueue.global().async {
             do{
                 try FileManager.default.createDirectory(atPath: newDirectory.path, withIntermediateDirectories: true, attributes: nil)
             }
@@ -91,7 +86,6 @@ class CreateDirectory: NSObject{
             {
                 NSLog("Unable to create directory \(error.debugDescription)")
             }
-            //}
         }
     }
     private func createAndWriteFile(){//}(fileName: String, data: CoinModel, directory: String) {
@@ -171,7 +165,6 @@ class CreateDirectory: NSObject{
             }catch{
                 print(error)
             }
-            //}
         }
     }
     private func getAllCoinsFromLimbo() -> [CoinModelData]?{
@@ -212,14 +205,12 @@ class CreateDirectory: NSObject{
     func removeFileFromPath(path: String, filename: String) -> Bool{
         let filePath = URL(string: getDirectoryPath(path: path))?.appendingPathComponent(filename)
         var success = false
-        //DispatchQueue.global().async {
         do {
             try fileManager.removeItem(atPath: filePath?.path ?? "")
             success = true
         } catch {
             print("Could not delete file")
         }
-        //}
         if success {
             print("SUCCESS")
         } else {

@@ -48,9 +48,6 @@ class WithdrawVC: CVBaseVC {
         tableView.dataSource = self
         tableView.delegate = self
         
-        //collectionView.dataSource = self
-        //collectionView.delegate = self
-        
         exportButton.layer.cornerRadius = 12.0
         shareButton.layer.cornerRadius = 12.0
         
@@ -61,7 +58,7 @@ class WithdrawVC: CVBaseVC {
         memoTF.layer.cornerRadius = 12.0
         memoTF.clipsToBounds = true
         memoTF.layer.borderWidth = 0.6
-        memoTF.layer.borderColor = UIColor.systemBlue.cgColor//.withAlphaComponent(0.6).cgColor
+        memoTF.layer.borderColor = UIColor.systemBlue.cgColor
         memoTF.placeholder = "Your Memo"
         memoTF.delegate = self
         
@@ -70,7 +67,6 @@ class WithdrawVC: CVBaseVC {
         denoModel = RealmManager.getAllCoinRModel()
         tableView.separatorStyle = .none
         tableView.reloadData()
-        //tableHeight.constant = rowHeight * CGFloat(denoModel?.count ?? 0)
         for i in 0..<(denoModel?.capacity ?? 0){
             if denoModel?[i]?.amount != 0{
                 tableHeight.constant += rowHeight
@@ -131,8 +127,6 @@ class WithdrawVC: CVBaseVC {
     @objc private func exportAction(sender: UIButton){
         //MARK:- generate json and write to file
         fileNames = [String]()
-        //shareActionFiles()
-        
         if totalAmount > 0{
             individualTransaction()
             shareActionFiles()
@@ -146,7 +140,6 @@ class WithdrawVC: CVBaseVC {
     }
     private func shareActionFiles(){
         var filePaths = [URL]()
-        //fileNames.append(contentsOf: ["1.CloudCoin.1.843429.stack"])
         for i in 0..<fileNames.count{
             if let filepath = URL(string: createDirectory.getDirectoryPath(path: CreateDirectory.exportedName))?.appendingPathComponent(fileNames[i]) {
                 filePaths.append(filepath)
@@ -186,11 +179,6 @@ class WithdrawVC: CVBaseVC {
         }
     }
     private func openActivityController(data: [URL]){
-        /*        let viewShare = PNGView(name: nil)
-         if let pngData = viewShare.convertToPng() {
-             print("PNG DATA \(pngData.hexEncodedString().stringToUInt8Array())")
-         }
-*/
         let activityController = UIActivityViewController(activityItems: data, applicationActivities: nil)
         activityController.completionWithItemsHandler = { activity, completed, items, error in
             if completed{

@@ -29,7 +29,6 @@ class PownHeaderGenerator: NSObject{
     private var totalArray = [UInt8]()
     
     private var finalCoinArrray = [UInt8]()
-    //private var pownResponseBinary = PownResponseModel()
     
     private var pownRequests = [PownRequestModel]()
     
@@ -51,15 +50,11 @@ class PownHeaderGenerator: NSObject{
         if let uintArray = uintArray {
             self.totalArray = uintArray
             self.numCoin = self.totalArray.count / Constants.unitPerCoin
-            //self.pownResponseBinary.coin = [PownResponseBinaryCoin](repeating: PownResponseBinaryCoin(), count: self.totalArray.count/448)
-            //processCoinForPowning(command: Commands.POWN)
             calculateRequests()
         }
     }
     //MARK: 1. First calculate no of requests
     private func calculateRequests(){
-        //let max = (Constants.maxCoins * Constants.maxPackets * Constants.unitPerCoin)
-        
         let maxCoinCount = Constants.maxCoins * Constants.maxPackets
         
         var noOfReq =  CGFloat(self.numCoin)/CGFloat(maxCoinCount)
@@ -68,7 +63,7 @@ class PownHeaderGenerator: NSObject{
         var i = 0
         repeat{
             let newIndex = i * Constants.maxCoins * Constants.unitPerCoin
-            let maxIndex = Swift.min(newIndex +  (Constants.maxCoins * Constants.unitPerCoin), totalArray.count)//x.rounded(.up))
+            let maxIndex = Swift.min(newIndex +  (Constants.maxCoins * Constants.unitPerCoin), totalArray.count)
             
             self.pownRequests.append(PownRequestModel(command: Commands.Pown, totalCoins: Array(totalArray[newIndex..<maxIndex]), pownResponseBinary: PownResponseModel()))
             self.pownRequests[i].pownResponseBinary.coin = [PownResponseBinaryCoin](repeating: PownResponseBinaryCoin(), count: self.pownRequests[i].totalCoins.count/Constants.unitPerCoin)
@@ -77,12 +72,12 @@ class PownHeaderGenerator: NSObject{
         }while i < Int(noOfReq)
     }
     //MARK: 2. Calculate PANs
-    private func processCoinForPowning(requestNo: Int){//(command: Commands, totalCoins: [UInt8]){
+    private func processCoinForPowning(requestNo: Int){
         for i in 0..<25{
             var SNO = [UInt8](), PAN: [UInt8]?, AN = [UInt8]()
             var coins = [CoinsBinary]()
-            for j in stride(from: 0, to: pownRequests[requestNo].totalCoins.count, by: 448) {//totalArray.count, by: 448) {
-                self.uintArray = Array(pownRequests[requestNo].totalCoins[j...(j+448-1)])//Array(self.totalArray[j...(j+448-1)])
+            for j in stride(from: 0, to: pownRequests[requestNo].totalCoins.count, by: 448) {
+                self.uintArray = Array(pownRequests[requestNo].totalCoins[j...(j+448-1)])
                 let arraySlice = uintArray[32...34]
                 SNO = Array(arraySlice)
                 let arraySlice1 = uintArray[48...(448 - 1)]
@@ -97,34 +92,24 @@ class PownHeaderGenerator: NSObject{
                 }
                 coins.append(CoinsBinary(SNO: SNO, AN: AN, PAN: PAN))
             }
-            //pownAction(index: i, coins: coins, requestNo: requestNo)
             calculateConcreteHeaderBody(index: i, coins: coins, requestNo: requestNo)
         }
-        
-        /*DispatchQueue.main.asyncAfter(deadline: .now() + 4.0, execute: {
-            self.decidePassFailBinary(requestNo: requestNo)
-        })*/
     }
     //MARK: 3. Calculate concrete header and body
     private func calculateConcreteHeaderBody(index: Int, coins: [CoinsBinary], requestNo: Int){
         var udpNo = coins.count/Constants.maxCoins
         udpNo = udpNo == 0 ? 1 : udpNo
-       // var uintArray = [UInt8]()
         //calculate header
         var header = HeaderGenerator.generateHeader(index: UInt8(index), commandType: UInt8(Commands.Pown.magicFunction()), udpNo: UInt8(udpNo))
         
         //calculate body
         let (challenge, allCoins) = BodyGenerator.generateBody(coins: coins)
         
-        //if packet is > 1 then create CRC32 checksum and include first byte in header index 6
         if udpNo > 1{
             let crc32 = CRC32.checksum(bytes: challenge + allCoins).convertUint32ToUint8()
             header[6] = crc32[0]
         }
         let requestPacket = RequestPacket(header: header, challenge: challenge, coins: allCoins)
-        /*uintArray.append(contentsOf: header)
-        uintArray.append(contentsOf: body)
-        uintArray.append(contentsOf: Constants.trailing)*/
         breakPackets(index: index, requestNo: requestNo, udpNo: udpNo, requestPacket: requestPacket)
     }
     //MARK: 4. Break packets
@@ -157,39 +142,7 @@ class PownHeaderGenerator: NSObject{
             })
             i += 1
         }while i < udpNo
-       
-        
-        /*if udpNo > 1{
-        }else{
-            byteArr = totalPackets
-        }
-        let _ = APIManager(hostModel: hostModelArray?[index], dataArray: byteArr, completion: { uintArr in
-            print("POWN RESPONSE \(uintArr)")
-            if !uintArr.isEmpty && uintArr[2] == 241{
-                let returnIndex = Int(uintArr[0])
-                self.pownRequests[requestNo].pownResponseBinary.pownResponse[returnIndex] = uintArr[2]
-            }
-        })*/
     }
-    /*private func pownAction(index: Int, coins: [CoinsBinary], requestNo: Int){
-        var udpNo = coins.count/Constants.maxCoins
-        udpNo = udpNo == 0 ? 1 : udpNo
-        
-        for i in stride(from: 0, through: coins.count, by: Constants.maxCoins){
-            let newIndex = i * Constants.maxCoins
-            let newCoins = Array(coins[newIndex..<Swift.min(newIndex + Constants.maxCoins, coins.count)])
-            let isTrailing = i == (udpNo - 1) ? true : false
-            let isFirst = i == 0 ? true : false
-            let uintArray = generatePownBinary(index: index, coins: newCoins, udpNo: udpNo, isTrailing: isTrailing, isFirst: isFirst)
-            let _ = APIManager(hostModel: hostModelArray?[index], dataArray: uintArray, completion: { uintArr in
-                print("POWN RESPONSE \(uintArr)")
-                if !uintArr.isEmpty && uintArr[2] == 241{
-                    let returnIndex = Int(uintArr[0])
-                    self.pownRequests[requestNo].pownResponseBinary.pownResponse[returnIndex] = uintArr[2]
-                }
-            })
-        }
-    }*/
     private func decidePassFailBinary(requestNo: Int){
         for i in 0..<pownRequests[requestNo].pownResponseBinary.coin.count{
             var pass = 0, fail = 0
@@ -232,7 +185,6 @@ class PownHeaderGenerator: NSObject{
         let data = Data(array)
         let hexString = data.hexEncodedString()
         let value = UInt64(hexString, radix: 16)
-        //let value = UInt32(bigEndian: data.withUnsafeBytes { $0.pointee })*/
         
         let directoryModel = DirectoryBinaryModel(fileName: "\(value ?? 0)", fileExt:  CreateDirectory.binName, data: newCoin, directory: directory)
         
@@ -246,16 +198,4 @@ class PownHeaderGenerator: NSObject{
             self.delegate?.pownIsSuccessfull(bool: true)
         }
     }
-    /*private func generatePownBinary(index: Int, coins: [CoinsBinary], udpNo: Int, isTrailing: Bool?=nil, isFirst: Bool?=nil) -> [UInt8]{
-        var uintArray = [UInt8]()
-        if isFirst ?? false{
-            uintArray = HeaderGenerator.generateHeader(index: UInt8(index), commandType: UInt8(Commands.Pown.magicFunction()), udpNo: UInt8(udpNo))
-        }
-        uintArray.append(contentsOf: BodyGenerator.generateBody(coins: coins))
-        if isTrailing ?? false{
-            uintArray.append(contentsOf: Constants.trailing)
-        }
-        print("HEADER \(uintArray[0...21]) CHALLENGE \(uintArray[22...37]) SN \(uintArray[38...40]) AN \(uintArray[41...56]) PAN \(uintArray[57...72]) TRAILING \(uintArray[73...74])")
-        return uintArray
-    }*/
 }
