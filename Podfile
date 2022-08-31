@@ -13,7 +13,7 @@ inherit! :search_paths
 # Pods for testing
 pod 'RealmSwift'
 
-pod 'PNG'
+#pod 'PNG'
 
 end
 
